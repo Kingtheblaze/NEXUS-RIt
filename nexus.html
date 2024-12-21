@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus RIT - Login</title>
     <link rel="stylesheet" href="styles1.css">
+    <style>
+        /* Optional: Add some styles for better chatbot placement */
+        #bp-web-widget {
+            z-index: 9999;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-
         <!-- Main Screen -->
         <div id="mainScreen">
             <h1>Nexus RIT</h1>
@@ -43,10 +48,35 @@
             <button type="submit" class="btn">Login</button>
             <button type="button" class="btn" id="backToMain2">Back</button>
         </form>
-        <p>Don't have an account? <a href="signup.html">Signup</a></p>
-    </div>
-    <script src="script1.js"></script>
 
+    </div>
+
+    <!-- Botpress Widget Script -->
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2024/12/21/13/20241221134224-4KPVSBYC.js"></script>
+
+    <script>
+        // Initialize Botpress Chatbot
+        // window.botpressWebChat.init({
+        //     hostUrl: "https://<YOUR_BOTPRESS_INSTANCE>.botpress.cloud", // Replace with your Botpress instance URL
+        //     botId: "<YOUR_BOT_ID>", // Replace with your Bot ID
+        //     botName: "Help Bot", // Optional: Display name for the bot
+        //     showPoweredBy: false, // Optional: Remove the "Powered by Botpress" footer
+        //     hideWidget: false, // Optional: Keep the widget always visible
+        // });
+
+        // Trigger chatbot on page load
+        window.botpressWebChat.onLoad(() => {
+            console.log("Chatbot loaded successfully!");
+            window.botpressWebChat.sendEvent({
+                type: 'proactive-trigger',
+                payload: { message: 'Hi! Need help with logging in or signing up?' }
+            });
+        });
+    </script>
+
+    <!-- Existing JS -->
+    <script src="script1.js"></script>
 </body>
 
 </html>
