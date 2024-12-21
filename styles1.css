@@ -292,6 +292,12 @@ button:active {
         font-size: 14px;
     }
 
+    #bp-web-widget {
+        bottom: 20px !important;
+        right: 20px !important;
+    }
+
+
 
 
 }
