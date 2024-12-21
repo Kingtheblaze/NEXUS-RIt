@@ -62,6 +62,17 @@ document.getElementById('studentLoginForm').addEventListener('submit', async (e)
 
 
 });
+// Existing functionality remains unchanged
+
+// Ensure chatbot loads on all pages
+window.botpressWebChat.onLoad(() => {
+    console.log("Botpress Chatbot Loaded!");
+    window.botpressWebChat.sendEvent({
+        type: 'proactive-trigger',
+        payload: { message: 'Hello! How can I assist you today?' }
+    });
+});
+
 
 // Handle Teacher Login
 // document.getElementById('teacherLoginForm').addEventListener('submit', async (e) => {
