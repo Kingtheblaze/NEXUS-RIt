@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus RIT - Login</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Main Screen -->
+        <div id="mainScreen">
+            <h1>Nexus RIT</h1>
+            <div class="theme-switcher">
+                <label for="theme-toggle">Dark Mode</label>
+                <input type="checkbox" id="theme-toggle" />
+            </div>
+
+            <!-- Image with animation -->
+            <img src="RIT2.jpg" alt="RIT Image" id="ritImage" class="fadeInImage" />
+            <p>Welcome to NEXUS RIT - A one-stop solution for all your problems</p>
+            <button class="btn" id="studentLoginBtn">Student Login</button>
+            <button class="btn" id="teacherLoginBtn">Teacher Login</button>
+        </div>
+
+        <!-- Student Login Form -->
+        <form id="studentLoginForm" class="form hidden">
+            <h2>Student Login</h2>
+            <input type="text" placeholder="USN" id="studentUSN" required />
+            <input type="date" placeholder="DOB (YYYY-MM-DD)" id="studentDOB" required />
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn" id="backToMain1">Back</button>
+        </form>
+
+        <!-- Teacher Login Form -->
+        <form id="teacherLoginForm" class="form hidden">
+            <h2>Teacher Login</h2>
+            <input type="email" placeholder="Email" id="teacherEmail" required />
+            <input type="password" placeholder="Password" id="teacherPassword" required />
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn" id="backToMain2">Back</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Signup</a></p>
+    </div>
+    <script src="script1.js"></script>
+
+</body>
+
+</html>
