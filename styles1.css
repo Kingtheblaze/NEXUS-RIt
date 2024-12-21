@@ -1,0 +1,297 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #a9effd;
+    /* Softer background to complement blue logo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #75c3ff;
+    overflow: hidden;
+}
+
+/* Apply to the image */
+#ritImage {
+    width: 50%;
+    /* Adjust the width of the image to 50% of its container */
+    max-width: 500px;
+    /* Ensure the image doesn't become too large */
+    height: auto;
+    /* Maintain aspect ratio */
+    opacity: 0;
+    transform: translateY(-30px);
+    /* Initially hide the image with a slight upward shift */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Animation for fading in and sliding up the image */
+.fadeInImage {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.5s;
+    /* Delay the animation */
+}
+
+/* Keyframes for the fadeInUp animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        /* Start with the image hidden below */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* End with the image at its normal position */
+    }
+}
+
+/* Make sure other content fades in after the image */
+#mainScreen h1,
+#mainScreen p {
+    opacity: 0;
+    animation: fadeInText 1s ease-out forwards;
+    animation-delay: 1.5s;
+    /* Delay for the text to appear after the image */
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Container for the login card */
+.container {
+    text-align: center;
+    background-color: rgb(211 244 248);
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    /* Default for larger screens */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+
+
+    /* For smaller screens */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+body {
+    font-size: 1rem;
+    /* Adjusts with the root font size */
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Site Name Animation */
+.site-name {
+    font-size: 28px;
+    color: #6c63ff;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+}
+
+.site-name span {
+    display: inline-block;
+    position: relative;
+    animation: float 1.5s ease-in-out infinite;
+}
+
+.site-name span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.site-name span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.site-name span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Headings and Text */
+h1 {
+    font-size: 36px;
+    color: #6c63ff;
+    margin: 10px 0;
+}
+
+.welcome-message {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+input,
+select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9fc;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.4);
+}
+
+input::placeholder {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* Buttons */
+.btn,
+button {
+    padding: 12px;
+    color: white;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(108, 99, 255, 0.3);
+    margin: 10px;
+    width: 200px;
+}
+
+.btn:hover,
+button:hover {
+    background-color: #5048d3;
+    transform: translateY(-2px);
+}
+
+button:focus {
+    outline: 2px solid #6c63ff;
+    outline-offset: 2px;
+}
+
+:root {
+    --bg-color: white;
+    --text-color: black;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    --bg-color: black;
+    --text-color: white;
+}
+
+.theme-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(108, 99, 255, 0.5);
+}
+
+/* Toggle Form Link */
+#toggleForm {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #6c63ff;
+    transition: color 0.3s ease;
+}
+
+#toggleForm:hover {
+    color: #5048d3;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 14px;
+    }
+
+
+
+}
