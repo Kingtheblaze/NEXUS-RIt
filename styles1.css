@@ -68,6 +68,7 @@ body {
 }
 
 
+
 /* Container for the login card */
 .container {
     text-align: center;
@@ -85,6 +86,16 @@ body {
 
 
     /* For smaller screens */
+}
+
+.news-Item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.news-Item h3 {
+    margin: 0;
 }
 
 @media (max-width: 768px) {
