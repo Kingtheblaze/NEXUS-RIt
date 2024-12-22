@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #6c63ff;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            color: white;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #5048d3;
+        }
+
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Student Dashboard</h2>
+        <a href="#">Food Order</a>
+        <a href="#">Health Check</a>
+        <a href="#">Assignments/Reports</a>
+        <a href="#">Attendance Tracker</a>
+    </div>
+
+    <div id="assignment-reports">
+        <h2>Assignment Reports</h2>
+        <form id="add-deadline-form">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" placeholder="Enter subject" required />
+
+            <label for="deadline">Deadline:</label>
+            <input type="date" id="deadline" required />
+
+            <button type="submit">Add Deadline</button>
+        </form>
+        <div id="deadline-list">
+            <h3>Upcoming Deadlines</h3>
+            <ul id="deadlines"></ul>
+        </div>
+    </div>
+
+    <div id="food-order">
+        <h2>Food Order</h2>
+        <div id="menu">
+            <h3>Menu</h3>
+            <ul>
+                <li data-item="Pizza" data-price="150">Pizza - ₹150 <button class="add-to-cart">Add to Cart</button>
+                </li>
+                <li data-item="Burger" data-price="100">Burger - ₹100 <button class="add-to-cart">Add to Cart</button>
+                </li>
+                <li data-item="Sandwich" data-price="80">Sandwich - ₹80 <button class="add-to-cart">Add to Cart</button>
+                </li>
+            </ul>
+        </div>
+        <div id="cart">
+            <h3>Your Cart</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: ₹<span id="total-price">0</span></p>
+            <button id="checkout">Checkout</button>
+        </div>
+    </div>
+
+
+
+    <div class="content">
+        <h1>Welcome, Student!</h1>
+        <p>Here you can manage your academic and campus activities.</p>
+    </div>
+</body>
+
+<script src="student.js"></script>
+<script src="server.js"></script>
+
+
+</html>
