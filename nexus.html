@@ -6,48 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus RIT - Login</title>
     <link rel="stylesheet" href="styles1.css">
-
+    <title>News API</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <style>
-        /* Optional: Add some styles for better chatbot placement */
-        #bp-web-widget {
-            z-index: 9999;
-        }
-
-        #news-container {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .news-item {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .news-item h3 {
-            margin: 0 0 5px;
-            font-size: 1.2em;
-        }
-
-        .news-item a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .news-item a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container">
+
         <!-- Main Screen -->
         <div id="mainScreen">
             <h1>Nexus RIT</h1>
@@ -55,13 +20,15 @@
                 <label for="theme-toggle">Dark Mode</label>
                 <input type="checkbox" id="theme-toggle" />
             </div>
-
             <h1>Latest News</h1>
-            <button class="btn" id="latest-news-button">Load Latest News</button>
-            <div id="news-container"></div>
+            <button id="load-news-button">Load News</button>
+            <div id="news-container">
+                <!-- News articles will be displayed here -->
+            </div>
+        
 
             <!-- Image with animation -->
-            <img src="RIT2.jpg" alt="RIT Image" id="ritImage" class="fadeInImage" />
+            <img src="NEXUSRIT.jpg" alt="RIT Image" id="ritImage" class="fadeInImage" />
             <p>Welcome to NEXUS RIT - A one-stop solution for all your problems</p>
             <button class="btn" id="studentLoginBtn">Student Login</button>
             <button class="btn" id="teacherLoginBtn">Teacher Login</button>
@@ -84,62 +51,8 @@
             <button type="submit" class="btn">Login</button>
             <button type="button" class="btn" id="backToMain2">Back</button>
         </form>
-
+        <p>Don't have an account? <a href="signup.html">Signup</a></p>
     </div>
-
-    <!-- Botpress Widget Script -->
-    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2024/12/21/13/20241221134224-4KPVSBYC.js"></script>
-
-    <script>
-        // Initialize Botpress Chatbot
-        window.botpressWebChat.onLoad(() => {
-            console.log("Chatbot loaded successfully!");
-            window.botpressWebChat.sendEvent({
-                type: 'proactive-trigger',
-                payload: { message: 'Hi! Need help with logging in or signing up?' }
-            });
-        });
-
-        // Fetch News Functionality
-        const apiKey = "ecb09b0167614812b1363264d4f455e0";
-        const url = `https://newsapi.org/v2/everything?q=latest&apiKey=${apiKey}`;
-
-        async function fetchNews() {
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-
-                if (data.articles) {
-                    renderNews(data.articles);
-                } else {
-                    console.error("No news articles found.");
-                }
-            } catch (error) {
-                console.error("Error fetching news data:", error);
-            }
-        }
-
-        function renderNews(articles) {
-            const newsContainer = document.getElementById("news-container");
-            newsContainer.innerHTML = ""; // Clear existing news
-
-            articles.forEach((article) => {
-                const newsItem = document.createElement("div");
-                newsItem.className = "news-item";
-                newsItem.innerHTML = `
-                    <h3>${article.title}</h3>
-                    <p>${article.description || "No description available."}</p>
-                    <a href="${article.url}" target="_blank">Read more</a>
-                `;
-                newsContainer.appendChild(newsItem);
-            });
-        }
-
-        document.getElementById("latest-news-button").addEventListener("click", fetchNews);
-    </script>
-
-    <!-- Existing JS -->
     <script src="script1.js"></script>
 
 </body>
