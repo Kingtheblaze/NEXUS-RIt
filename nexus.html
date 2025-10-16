@@ -5,56 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus RIT - Login</title>
-    <link rel="stylesheet" href="styles1.css">
-    <title>News API</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <div class="container">
-
-        <!-- Main Screen -->
         <div id="mainScreen">
             <h1>Nexus RIT</h1>
             <div class="theme-switcher">
                 <label for="theme-toggle">Dark Mode</label>
                 <input type="checkbox" id="theme-toggle" />
             </div>
-            <h1>Latest News</h1>
-            <button id="load-news-button">Load News</button>
-            <div id="news-container">
-                <!-- News articles will be displayed here -->
-            </div>
-        
-
-            <!-- Image with animation -->
-            <img src="NEXUSRIT.jpg" alt="RIT Image" id="ritImage" class="fadeInImage" />
-            <p>Welcome to NEXUS RIT - A one-stop solution for all your problems</p>
+            
+            <img src="NEXUSRIT.jpg" alt="Nexus RIT Logo" width="150" style="border-radius: 50%;" />
+            <p>Welcome to NEXUS RIT - A one-stop solution for all your campus needs.</p>
             <button class="btn" id="studentLoginBtn">Student Login</button>
             <button class="btn" id="teacherLoginBtn">Teacher Login</button>
+            <hr>
+            <h2>Latest Campus News</h2>
+            <div id="news-container">
+                <p>Loading news...</p>
+            </div>
         </div>
 
-        <!-- Student Login Form -->
         <form id="studentLoginForm" class="form hidden">
             <h2>Student Login</h2>
+            <label for="studentUSN" class="visually-hidden">USN</label>
             <input type="text" placeholder="USN" id="studentUSN" required />
-            <input type="date" placeholder="DOB (YYYY-MM-DD)" id="studentDOB" required />
+            
+            <label for="studentDOB" class="visually-hidden">Date of Birth</label>
+            <input type="date" id="studentDOB" required />
+            
+            <p id="student-login-message" class="error-message"></p>
             <button type="submit" class="btn">Login</button>
             <button type="button" class="btn" id="backToMain1">Back</button>
         </form>
 
-        <!-- Teacher Login Form -->
         <form id="teacherLoginForm" class="form hidden">
             <h2>Teacher Login</h2>
-            <input type="email" placeholder="Email" id="teacherEmail" required />
-            <input type="password" placeholder="Password" id="teacherPassword" required />
-            <button type="submit" class="btn">Login</button>
+            <p>Teacher login is currently under development.</p>
             <button type="button" class="btn" id="backToMain2">Back</button>
         </form>
-        <p>Don't have an account? <a href="signup.html">Signup</a></p>
     </div>
-    <script src="script1.js"></script>
-<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    
+    <script src="login.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2024/12/21/13/2024221134224-4KPVSBYC.js"></script>
 </body>
 
